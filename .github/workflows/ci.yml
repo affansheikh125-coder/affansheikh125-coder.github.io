@@ -1,0 +1,49 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install & build React frontend
+        run: |
+          npm install --prefix client
+          npm run build --prefix client
+
+      - name: Install backend
+        run: npm install --prefix server
+
+      - name: Smoke test — start server and hit health check
+        run: |
+          node server/index.js &
+          sleep 3
+          curl --fail http://localhost:5000/api/health
+          curl --fail http://localhost:5000/ | grep -q '<div id="root">'
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "RENDER_DEPLOY_HOOK secret not set, skipping deploy."
+            exit 0
+          fi
+          curl --fail -X POST "$RENDER_DEPLOY_HOOK"

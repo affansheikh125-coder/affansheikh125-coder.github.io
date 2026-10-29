@@ -1,0 +1,14 @@
+{
+  "name": "affan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Muhammad Affan Sheikh — React frontend + Node.js/Express backend",
+  "scripts": {
+    "install:all": "npm install --prefix client && npm install --prefix server",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "start": "npm start --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server"
+  },
+  "engines": { "node": ">=18" }
+}
