@@ -33,7 +33,7 @@ export default function Navbar() {
             <li key={href}><a href={href}>{label}</a></li>
           ))}
         </ul>
-        <a href="#contact" className="btn btn-primary nav-cta">Let's talk</a>
+        <a href="#contact" className="btn btn-primary nav-cta">Book a call</a>
         <button className="menu-btn" onClick={() => setOpen((o) => !o)} aria-label="Toggle menu" aria-expanded={open}>
           {open ? <LuX /> : <LuMenu />}
         </button>
@@ -42,7 +42,7 @@ export default function Navbar() {
         {LINKS.map(([label, href]) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
         ))}
-        <a href="#contact" className="btn btn-primary" onClick={() => setOpen(false)}>Let's talk</a>
+        <a href="#contact" className="btn btn-primary" onClick={() => setOpen(false)}>Book a call</a>
       </nav>
     </header>
   );

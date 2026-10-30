@@ -81,3 +81,24 @@ If you want the form to go through your own Express API instead of FormSubmit:
 
 If the form times out on Render, the host is blocking email ports. Sign up at https://resend.com with
 affansheikh125@gmail.com and set `RESEND_API_KEY` instead.
+
+
+---
+
+## SEO checklist (already set up)
+- Title, meta description, canonical URL, Open Graph + Twitter share image (`client/public/og-image.png`)
+- Structured data (JSON-LD): Person, ProfessionalService, WebSite and FAQPage, in `client/index.html`
+- `robots.txt`, `sitemap.xml`, `site.webmanifest`, favicons and app icons in `client/public/`
+- One `<h1>`, alt text on images, `<noscript>` fallback text for crawlers, FAQ section on the page
+
+If you edit the FAQ, update both `client/src/faq.js` and the FAQPage block in `client/index.html`.
+
+### After going live
+1. **Google Search Console** (https://search.google.com/search-console): add a *URL prefix* property for
+   `https://affansheikh125-coder.github.io/`, choose **HTML file** verification, put the downloaded
+   `googleXXXX.html` file in `client/public/`, push, then click Verify.
+2. In Search Console open **Sitemaps** and submit `sitemap.xml`.
+3. Use **URL Inspection → Request indexing** for the home page.
+4. **Bing Webmaster Tools** (https://www.bing.com/webmasters): sign in and **Import from Google Search Console**.
+5. Test the share preview: paste your link into https://www.opengraph.xyz or a WhatsApp chat.
+6. Add the site link to your LinkedIn, GitHub, Fiverr and Upwork profiles. Links from these profiles help Google find and trust the site.

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa6';
-import { SiGithub } from 'react-icons/si';
-import { LuMail, LuArrowUpRight, LuArrowRight, LuCircleCheck, LuCircleAlert } from 'react-icons/lu';
+import { FaWhatsapp, FaLinkedinIn, Gmail } from '../brands';
+import { SiGithub } from '../brands';
+import { LuArrowUpRight, LuArrowRight, LuCircleCheck, LuCircleAlert, LuPhone, LuMapPin, LuClock } from 'react-icons/lu';
 import { PROFILE, whatsappLink } from '../data';
 
 // Same server in production (Express serves the React build), so '' works.
@@ -60,32 +60,52 @@ export default function Contact() {
     }
   }
 
-  const rows = [
-    { href: whatsappLink(), icon: FaWhatsapp, label: 'WhatsApp', value: PROFILE.whatsappDisplay },
-    { href: `mailto:${PROFILE.email}`, icon: LuMail, label: 'Email', value: PROFILE.email },
-    { href: PROFILE.linkedin, icon: FaLinkedinIn, label: 'LinkedIn', value: 'Affan Sheikh' },
-    { href: PROFILE.github, icon: SiGithub, label: 'GitHub', value: 'affansheikh125-coder' },
+  const methods = [
+    { icon: FaWhatsapp, tone: 'wa', title: 'Chat on WhatsApp', text: 'The fastest way to reach me. Send a message and we can talk right away.', value: PROFILE.whatsappDisplay, cta: 'Start chat', href: whatsappLink() },
+    { icon: Gmail, tone: 'mail', title: 'Send an email', text: 'Share your brief, files or questions and I will reply in detail.', value: PROFILE.email, cta: 'Compose email', href: `mailto:${PROFILE.email}?subject=${encodeURIComponent('Project enquiry')}` },
+    { icon: LuPhone, tone: 'call', title: 'Call me', text: 'Prefer to talk it through? Give me a call.', value: '+92 312 4243627', cta: 'Call now', href: 'tel:+923124243627' },
   ];
 
   return (
-    <section className="section" id="contact">
-      <div className="container contact-grid">
-        <div>
+    <section className="section contact-section" id="contact">
+      <div className="container">
+        <div className="section-head">
           <span className="label reveal">Contact</span>
-          <h2 className="h2 reveal">Have a project in mind? <em>Let's talk.</em></h2>
-          <p className="lead reveal" style={{ marginTop: 20 }}>Tell me what you're building or what you want to grow. I reply within 24 hours.</p>
-          <div className="contact-list reveal">
-            {rows.map(({ href, icon: Icon, label, value }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" className="contact-row">
-                <Icon /><span>{label}</span><b>{value}</b><LuArrowUpRight className="arrow" />
-              </a>
-            ))}
-          </div>
+          <h2 className="h2 reveal">Let's build something <em>great together.</em></h2>
+          <p className="lead reveal">Tell me what you're building or what you want to grow. Pick whichever way suits you best.</p>
         </div>
+
+        <div className="methods stagger">
+          {methods.map(({ icon: Icon, tone, title, text, value, cta, href }) => (
+            <div key={title} className={`method ${tone}`}>
+              <div className="method-ic"><Icon /></div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <b className="method-value">{value}</b>
+              <a className={`btn ${tone === 'wa' ? 'btn-wa' : 'btn-ghost'}`} href={href} target={tone === 'call' ? undefined : '_blank'} rel="noreferrer">
+                {cta} <LuArrowUpRight />
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="contact-grid">
+          <div className="contact-side reveal">
+            <h3 className="h3">Prefer a form?</h3>
+            <p className="muted">Send a detailed query and it lands straight in my inbox.</p>
+            <ul className="contact-facts">
+              <li><LuClock /> Reply within 24 hours</li>
+              <li><LuMapPin /> Based in Lahore, Pakistan · available for remote projects</li>
+            </ul>
+            <div className="contact-socials">
+              <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="chip"><FaLinkedinIn /> LinkedIn</a>
+              <a href={PROFILE.github} target="_blank" rel="noreferrer" className="chip"><SiGithub /> GitHub</a>
+            </div>
+          </div>
 
         <form className="form reveal" onSubmit={submit}>
           <h3 className="h3">Send a query</h3>
-          <p>Your message goes straight to my inbox.</p>
+          <p>All fields except phone are required.</p>
 
           <div className="row">
             <div className="field">
@@ -108,7 +128,8 @@ export default function Contact() {
                 <option>Full-stack web app</option>
                 <option>Mobile app (Android / iOS)</option>
                 <option>CI/CD &amp; deployment</option>
-                <option>Meta / Google Ads</option>
+                <option>Python automation / AI chatbot</option>
+                <option>Meta / Google / Microsoft Ads</option>
                 <option>B2B / B2C lead generation</option>
                 <option>Something else</option>
               </select>
@@ -137,6 +158,7 @@ export default function Contact() {
             </div>
           )}
         </form>
+        </div>
       </div>
     </section>
   );

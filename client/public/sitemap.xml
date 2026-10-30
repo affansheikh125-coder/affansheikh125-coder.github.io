@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://affansheikh125-coder.github.io/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://affansheikh125-coder.github.io/og-image.png</image:loc><image:title>Affan Sheikh — Full-stack &amp; mobile developer, performance marketer</image:title></image:image>
+    <image:image><image:loc>https://affansheikh125-coder.github.io/media/flightdeals.webp</image:loc><image:title>Flight Deals web app built with React and Node.js</image:title></image:image>
+    <image:image><image:loc>https://affansheikh125-coder.github.io/media/zehan-saaz.webp</image:loc><image:title>Zehan Saaz — quality education project (SDG 4)</image:title></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://affansheikh125-coder.github.io/media/flightdeals.webp</video:thumbnail_loc>
+      <video:title>Flight Deals web app demo</video:title>
+      <video:description>Demo of a flight deals web app built by Affan Sheikh with React, Node.js and Express.</video:description>
+      <video:content_loc>https://affansheikh125-coder.github.io/media/flightdeals.mp4</video:content_loc>
+    </video:video>
+  </url>
+</urlset>

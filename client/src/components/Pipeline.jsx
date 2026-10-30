@@ -1,5 +1,7 @@
+import { useRef } from 'react';
+import { useScrollProgress } from '../hooks';
 import { LuGitBranch, LuPackage, LuFlaskConical, LuCloudUpload, LuActivity } from 'react-icons/lu';
-import { SiGithubactions, SiDocker, SiVercel, SiRender, SiGithub } from 'react-icons/si';
+import { SiGithubactions, SiDocker, SiVercel, SiRender, SiGithub, SiNetlify } from '../brands';
 
 const STAGES = [
   { icon: LuGitBranch, title: 'Commit', text: 'Code pushed to GitHub', code: 'git push' },
@@ -10,6 +12,8 @@ const STAGES = [
 ];
 
 export default function Pipeline() {
+  const ref = useRef(null);
+  useScrollProgress(ref, { start: 0.85, end: 0.35 });
   return (
     <section className="section" id="cicd">
       <div className="container">
@@ -24,9 +28,9 @@ export default function Pipeline() {
           </p>
         </div>
 
-        <div className="pipeline">
+        <div className="pipeline" ref={ref}>
           {STAGES.map(({ icon: Icon, title, text, code }, i) => (
-            <div key={title} className="stage">
+            <div key={title} className="stage" style={{ '--i': i }}>
               <div className="stage-top"><Icon /><span>{String(i + 1).padStart(2, '0')}</span></div>
               <b>{title}</b>
               <small>{text}</small>
@@ -42,6 +46,7 @@ export default function Pipeline() {
           <span className="chip"><SiGithubactions /> GitHub Actions</span>
           <span className="chip"><SiDocker /> Docker</span>
           <span className="chip"><SiVercel /> Vercel</span>
+          <span className="chip"><SiNetlify /> Netlify</span>
           <span className="chip"><SiRender /> Render</span>
         </div>
       </div>

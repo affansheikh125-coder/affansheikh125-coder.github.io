@@ -1,18 +1,18 @@
 import {
   SiReact, SiJavascript, SiTailwindcss, SiRedux, SiNodedotjs, SiExpress, SiMongodb,
-  SiAndroid, SiApple, SiExpo, SiGithubactions, SiDocker, SiGithub, SiVercel, SiRender, SiFigma, SiPostman,
-} from 'react-icons/si';
-import { FaDatabase } from 'react-icons/fa6';
-import { SiPython, SiFastapi, SiLangchain, SiSelenium, SiPandas } from 'react-icons/si';
+  SiAndroid, SiApple, SiExpo, SiGithubactions, SiDocker, SiGithub, SiVercel, SiRender, SiFigma, SiPostman, SiMysql, SiNetlify,
+} from '../brands';
+import { FaDatabase } from '../brands';
+import { SiPython, SiFastapi, SiLangchain, SiSelenium, SiPandas } from '../brands';
 import { LuServer, LuKeyRound, LuGlobe } from 'react-icons/lu';
 
 const GROUPS = [
   { title: 'Frontend', note: 'Web interfaces', items: [[SiReact, 'React.js'], [SiJavascript, 'JavaScript'], [SiTailwindcss, 'Tailwind CSS'], [SiRedux, 'Redux']] },
   { title: 'Backend', note: 'APIs & business logic', items: [[SiNodedotjs, 'Node.js'], [SiExpress, 'Express.js'], [LuServer, 'REST APIs'], [LuKeyRound, 'Auth & JWT']] },
-  { title: 'Databases', note: 'Data layer', items: [[SiMongodb, 'MongoDB'], [FaDatabase, 'Oracle'], [FaDatabase, 'SQL'], [SiMongodb, 'Mongoose']] },
+  { title: 'Databases', note: 'Data layer', items: [[SiMongodb, 'MongoDB'], [FaDatabase, 'Oracle'], [SiMysql, 'SQL'], [SiMongodb, 'Mongoose']] },
   { title: 'Mobile', note: 'Cross-platform', items: [[SiReact, 'React Native'], [SiAndroid, 'Android'], [SiApple, 'iOS'], [SiExpo, 'Expo']] },
   { title: 'Automation & AI', note: 'Python bots & chatbots', items: [[SiPython, 'Python'], [SiFastapi, 'FastAPI'], [SiLangchain, 'LangChain'], [SiSelenium, 'Selenium'], [SiPandas, 'Pandas']] },
-  { title: 'DevOps & CI/CD', note: 'Build, test, deploy', items: [[SiGithubactions, 'GitHub Actions'], [SiDocker, 'Docker'], [SiVercel, 'Vercel'], [SiRender, 'Render']] },
+  { title: 'DevOps & CI/CD', note: 'Build, test, deploy', items: [[SiGithubactions, 'GitHub Actions'], [SiDocker, 'Docker'], [SiVercel, 'Vercel'], [SiNetlify, 'Netlify'], [SiRender, 'Render']] },
   { title: 'Tools', note: 'Daily drivers', items: [[SiGithub, 'Git & GitHub'], [SiFigma, 'Figma'], [SiPostman, 'Postman'], [LuGlobe, 'Hosting & DNS']] },
 ];
 

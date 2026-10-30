@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SiAndroid, SiApple, SiReact } from 'react-icons/si';
+import { SiAndroid, SiApple, SiReact } from '../brands';
 import {
   LuCheck, LuSearch, LuPlane, LuHouse, LuTicket, LuHeart, LuUser, LuPlus, LuBell, LuSlidersHorizontal,
 } from 'react-icons/lu';

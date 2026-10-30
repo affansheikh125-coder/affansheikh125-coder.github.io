@@ -14,7 +14,7 @@ export default function About() {
           </p>
           <p className="reveal">
             A great product still needs customers. That's why I also run <strong>performance marketing</strong> campaigns on
-            Meta and Google, turning ad spend into qualified <strong>B2B and B2C leads</strong>. Clients get one person who
+            Meta, Google and Microsoft, turning ad spend into qualified <strong>B2B and B2C leads</strong>. Clients get one person who
             understands both the code and the growth.
           </p>
           <div className="pillars reveal">

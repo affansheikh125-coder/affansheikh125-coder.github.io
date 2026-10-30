@@ -13,3 +13,6 @@ export const PROFILE = {
 
 export const whatsappLink = (text = "Hi Affan, I found your portfolio and I'd like to discuss a project.") =>
   `https://wa.me/${PROFILE.whatsappIntl}?text=${encodeURIComponent(text)}`;
+
+// Files in client/public/media are copied to the site as-is.
+export const media = (file) => `${(import.meta.env && import.meta.env.BASE_URL) || './'}media/${file}`;

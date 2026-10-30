@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { SiPython, SiFastapi, SiFlask, SiLangchain, SiSelenium, SiPandas, SiShopify, SiWoocommerce, SiWhatsapp, SiZapier } from 'react-icons/si';
+import { SiPython, SiFastapi, SiFlask, SiLangchain, SiSelenium, SiPandas, SiShopify, SiWoocommerce, SiWhatsapp, SiZapier, FaAmazon, Ebay } from '../brands';
 import { LuBot, LuPackageCheck, LuShoppingCart, LuMessageCircle, LuFileSpreadsheet, LuRepeat, LuSearch, LuSparkles, LuStore, LuSend } from 'react-icons/lu';
 
 const SCRIPT = [
@@ -53,8 +53,8 @@ export default function Automation() {
             <h2 className="h2 reveal">Chatbots and automation, <em>sold as products to online stores.</em></h2>
           </div>
           <p className="lead reveal">
-            I build Python automation and AI chatbots as ready-made products for e-commerce stores. They answer customers,
-            recover sales and handle repetitive work, so store owners can focus on growing.
+            I build Python automation and AI chatbots as ready-made products for e-commerce stores. I also run my own
+            stores on Amazon, eBay and Shopify, so every tool is tested on real orders before a client gets it.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function Automation() {
           </div>
 
           <div className="auto-side">
-            <div className="auto-features reveal">
+            <div className="auto-features stagger">
               {FEATURES.map(({ icon: Icon, title, text }) => (
                 <div key={title} className="auto-feature">
                   <Icon />
@@ -90,8 +90,17 @@ export default function Automation() {
               ))}
             </div>
 
+            <div className="stores reveal">
+              <span>Stores I run</span>
+              <div className="store-logos">
+                <span className="store"><FaAmazon /><b>Amazon</b></span>
+                <span className="store"><Ebay /></span>
+                <span className="store"><SiShopify /><b>Shopify</b></span>
+              </div>
+            </div>
+
             <div className="auto-flow reveal">
-              <div><LuStore /><b>Your store</b><small>Shopify · WooCommerce</small></div>
+              <div><LuStore /><b>Your store</b><small>Amazon · eBay · Shopify</small></div>
               <span className="arrow-r" />
               <div><SiPython /><b>Python bot</b><small>FastAPI + AI model</small></div>
               <span className="arrow-r" />
@@ -107,6 +116,8 @@ export default function Automation() {
               <span className="chip"><SiSelenium /> Selenium</span>
               <span className="chip"><SiPandas /> Pandas</span>
               <span className="chip"><SiShopify /> Shopify</span>
+              <span className="chip"><FaAmazon /> Amazon</span>
+              <span className="chip"><Ebay /></span>
               <span className="chip"><SiWoocommerce /> WooCommerce</span>
               <span className="chip"><SiZapier /> Zapier</span>
             </div>

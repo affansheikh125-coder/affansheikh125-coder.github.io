@@ -1,6 +1,7 @@
-import { SiMeta, SiGoogleads, SiGoogleanalytics } from 'react-icons/si';
+import { SiMeta, SiGoogleads, SiGoogleanalytics } from '../brands';
 import { LuBuilding2, LuUsers, LuCheck } from 'react-icons/lu';
-import { FaMicrosoft } from 'react-icons/fa6';
+import { FaMicrosoft } from '../brands';
+import AdsDashboard from './AdsDashboard';
 
 // Bar widths and opacity narrow down the funnel; one accent hue throughout.
 const FUNNEL = [
@@ -30,8 +31,8 @@ export default function Marketing() {
           </p>
         </div>
 
-        <div className="mkt-top">
-          <div className="platform-card reveal">
+        <div className="mkt-top stagger">
+          <div className="platform-card">
             <div className="platform-head">
               <div className="platform-logo"><SiMeta /></div>
               <div><h3 className="h3">Meta Ads</h3><small>Facebook · Instagram · Messenger · WhatsApp</small></div>
@@ -43,7 +44,7 @@ export default function Marketing() {
             <div className="chips">{META_TAGS.map((t) => <span key={t} className="chip">{t}</span>)}</div>
           </div>
 
-          <div className="platform-card reveal">
+          <div className="platform-card">
             <div className="platform-head">
               <div className="platform-logo"><SiGoogleads /></div>
               <div><h3 className="h3">Google Ads</h3><small>Search · YouTube · Display · Performance Max</small></div>
@@ -57,7 +58,7 @@ export default function Marketing() {
               <span className="chip"><SiGoogleanalytics /> GA4</span>
             </div>
           </div>
-          <div className="platform-card reveal">
+          <div className="platform-card">
             <div className="platform-head">
               <div className="platform-logo"><FaMicrosoft /></div>
               <div><h3 className="h3">Microsoft Ads</h3><small>Bing · Edge · Microsoft Audience Network</small></div>
@@ -72,13 +73,15 @@ export default function Marketing() {
           </div>
         </div>
 
+        <AdsDashboard />
+
         <div className="funnel-wrap">
           <div className="panel reveal">
             <h3 className="h3">The funnel behind every campaign</h3>
             <div className="funnel">
               {FUNNEL.map((f) => (
                 <div key={f.label} className="funnel-step">
-                  <div className="funnel-bar" style={{ width: `${f.w}%`, opacity: f.o }}>{f.label}</div>
+                  <div className="funnel-bar" style={{ width: `${f.w}%`, '--o': f.o }}>{f.label}</div>
                   <span>{f.note}</span>
                 </div>
               ))}

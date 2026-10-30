@@ -44,7 +44,7 @@ export default function Services() {
           </div>
           <p className="lead reveal">Build the product, ship it reliably, automate the busywork, then bring in the people who'll pay for it.</p>
         </div>
-        <div className="services reveal">
+        <div className="services stagger">
           {SERVICES.map(({ icon: Icon, title, text, points }) => (
             <article key={title} className="service">
               <Icon className="service-icon" />
